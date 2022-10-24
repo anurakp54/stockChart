@@ -137,7 +137,7 @@ def ichimoku(signal):
 
 
 with st.sidebar:
-    choose = st.text_input("Enter Stock Name", "^TNX")
+    choose = st.text_input("Enter Stock Name", "PTT")
     period = st.slider('Period', 0, 720, value=180, step=30)
 
 with simple_analysis:
@@ -210,7 +210,7 @@ with special_analysis_1:
     fig, (ax) = plt.subplots(figsize=(20, 10))
     ax.plot(choseStock.data.index.values, choseStock.data['senkou_span_a'], color='black', label="tenkan_sen")
     ax.plot(choseStock.data.index.values, choseStock.data['senkou_span_b'], color='blue', label="kijun_sen")
-    ax.plot(df.data.index.values, choseStock.data['MACD'], color='cyan',label='MACD')
+    #ax.plot(choseStock.data.index.values, choseStock.data['MACD'], color='cyan',label='MACD')
     ax.plot(choseStock.data.index.values, choseStock.data['Close'], color='green', label='close')
     ax.scatter(choseStock.data.index.values, choseStock.data['Buy_Signal'], s=200, c="green", alpha=1, marker="v", label="Buy")
     ax.scatter(choseStock.data.index.values, choseStock.data['Sell_Signal'], s=200, c="red", alpha=1, marker="^", label="Sell")
