@@ -4,7 +4,8 @@ import pandas as pd
 from datetime import date, timedelta
 import yfinance as yf
 import numpy as np
-import matpotlib.pyplot as plt
+import matplotlib.pyplot as plt
+
 plt.style.use('fivethirtyeight')
 
 st.set_page_config(layout='wide')
