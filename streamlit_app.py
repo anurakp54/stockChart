@@ -149,7 +149,7 @@ with simple_analysis:
     # xrate = xrate_index.reset_index()
 
     choseStock = stock(choose+'.BK', period)
-    st.write(f' Current Target Price: {choseStock.mu:.2f}')
+    st.write(f' Resistance Price: {choseStock.mu:.2f}')
     choseStock_df = pd.DataFrame(choseStock.data)
     choseStock_df['Avg Price'] = (choseStock_df['Adj Close'] + choseStock_df['High']) * 0.5
     choseStock_df['Avg Price'] = choseStock_df['Avg Price'].round(2)
@@ -195,7 +195,7 @@ with simple_analysis:
     ).properties(
         width=900
     )
-    """Stock Price with Buying Zone (red line)"""
+    """Stock Price with Buying Zone (below red line)"""
     mainplot + line
     """Stock Trend with Volume"""
     price_plot + price_plot.transform_loess('Date','Avg Price').mark_line(color='red',size=8)
@@ -207,7 +207,7 @@ with special_analysis_1:
     ichimoku_data.data['Sell_Signal'] = buy_sell_signal[1]
 
     """Technical Chart"""
-    fig, (ax) = plt.subplots(figsize=(20, 10))
+    fig, (ax) = plt.subplots(figsize=(25, 15))
     ax.plot(choseStock.data.index.values, choseStock.data['senkou_span_a'], color='black', label="tenkan_sen")
     ax.plot(choseStock.data.index.values, choseStock.data['senkou_span_b'], color='blue', label="kijun_sen")
     #ax.plot(choseStock.data.index.values, choseStock.data['MACD'], color='cyan',label='MACD')
